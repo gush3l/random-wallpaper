@@ -1,0 +1,39 @@
+{
+  "name": "random-wallpaper",
+  "version": "0.0.1",
+  "description": "A simple and stylish app that gives you a random wallpaper.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set APP_DEV=true && electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "author": "gush3l",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.4.2",
+    "@electron-forge/maker-squirrel": "^6.4.2",
+    "@electron-forge/maker-zip": "^6.4.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+    "electron": "^27.0.0"
+  },
+  "dependencies": {
+    "@electron/asar": "^3.2.7",
+    "electron-squirrel-startup": "^1.0.0",
+    "wallpaper": "^5.0.1"
+  },
+  "build": {
+    "extraResources": [
+      {
+        "from": "./assets/",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  }
+}

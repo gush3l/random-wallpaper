@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./style/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./renderer.js"></script>
+    <title>Random Wallpaper</title>
+</head>
+
+<body>
+    <drag-bar><span><i class="fa-solid fa-image"></i> Random Wallpaper</span></drag-bar>
+    <min-button id="min-button"><i class="fa-solid fa-minimize"></i></min-button>
+    <nav-bar currentTab="home">
+        <span class="home-nav-bar-button"><i class="fa-solid fa-house home-nav-bar-button-icon" id="home-nav-bar-button-icon" onclick="handleNavBar('home')"></i><span class="sliding-to-right"> Home</span></span>
+        <span class="settings-nav-bar-button"><i class="fa-solid fa-gear settings-nav-bar-button-icon" id="settings-nav-bar-button-icon" onclick="handleNavBar('settings')"></i><span class="sliding-to-left">Settings </span></span>
+    </nav-bar>
+    <setup>
+        <setup-dialog>
+            <h1>Unsplash API</h1>
+            <span>In order to be able to use this app, you need to provide a valid Unsplash API Access Key.</span>
+            <label for="accessKeyInput"><b>API Access Key</b></label>
+            <input type="text" id="accessKeyInput" name="accessKeyInput"/>
+            <button id="setup-check-api-key">Done!</button>
+            <h5><em>If you don't know from where to get such a key, I would suggest reading <a href="https://unsplash.com/documentation#creating-a-developer-account">this documentation!</a></em></h5>
+        </setup-dialog>
+    </setup>
+    <home>
+        <h2>Home</h2>
+        <div class="random-fetched-image-placeholder">
+            <svg class="random-fetched-image-placeholder-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff" height="800px" width="800px" version="1.1" viewBox="0 0 350 350" enable-background="new 0 0 350 350">
+                <path d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z   M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426  c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40  c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748  l-85.109,109.04H25V20z"/>
+            </svg>
+        </div>
+        <div class="random-fetched-image-overlay" onclick="fetchImages()">
+            <br><br><br><br><br><br><br><br><br>
+            <span id="random-fetched-image-overlay-message"><i class="fa-solid fa-image"></i> Click to get a random wallpaper!</span>
+        </div>
+        <img id="random-fetched-image" class="random-fetched-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+        <div class="random-fetched-image-info-container">
+            <span id="random-fetched-image-author"><i class="fa-solid fa-at"></i> Image Author</span>
+            <br><br>
+            <button class="themed-button" id="random-fetched-image-link" link="https://unsplash.com/photos/" onclick="copyLinkToClipboard()"><i class="fa-solid fa-clipboard"></i> Image Link</button>
+            <br><br>
+            <button class="themed-button" id="restore-wallpaper-button" onclick="restoreWallpaper()"><i class="fa-solid fa-rotate-left"></i> Restore Wallpaper</button>
+        </div>
+        <hr>
+        <wallpaper-grid id="wallpaper-grid">
+        </wallpaper-grid>
+    </home>
+    <settings>
+        <h2>Settings</h2>
+        <div class="setting">
+            <label for="theme-select">Theme:</label>
+            <br>
+            <select id="theme-select" onchange="updateStyles()">
+                <option value="light">Light</option>
+                <option value="dark" selected>Dark</option>
+            </select>
+        </div>
+        <div class="setting">
+            <label for="accessKeyInputSettings">Unsplash API Access Key:</label>
+            <input type="text" id="accessKeyInputSettings" name="accessKeyInput"/>
+        </div>
+        <div class="setting">
+            <button id="save-button" class="themed-button" onclick="saveSettings()">Save</button>
+        </div>
+        <div class="setting">
+            <button class="themed-button" id="restore-wallpaper-button" onclick="restoreWallpaper()">Restore Wallpaper</button>
+        </div>
+    </settings>
+</body>
+
+</html>
