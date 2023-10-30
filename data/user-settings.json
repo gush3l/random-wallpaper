@@ -1,0 +1,20 @@
+{
+    "initialSetupDone":false,
+    "isDarkMode":true,
+    "unsplashAPIKey":"NONE",
+    "lastWallpaper":"NONE",
+    "wallpaperHistory":[
+       {
+          "id":"r2vxqvKXng8",
+          "thumbnailLink":"https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1500885168199-dc1fde1d8177",
+          "author":"Niklas Tidbury (ntidbury)",
+          "fileName":"r2vxqvKXng8.jpeg"
+       },
+       {
+          "id":"1WQ5RZuH9xo",
+          "thumbnailLink":"https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1523978591478-c753949ff840",
+          "author":"Pascal Debrunner (debrupas)",
+          "fileName":"1WQ5RZuH9xo.jpeg"
+       }
+    ]
+ }
