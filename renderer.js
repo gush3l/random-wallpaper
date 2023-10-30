@@ -241,6 +241,7 @@ function saveSettings() {
 
 function updateWallpaperGrid() {
     console.log("Update Wallpaper Grid")
+    document.getElementById('wallpaper-grid').innerHTML = '';
     for (let counter = 0;counter < configData.wallpaperHistory.length; counter++) {
         let imageHistoryEl = `<div class='wallpaper-history' id='wallpaper-history-${counter}' image-id='${configData.wallpaperHistory[counter].id}' onclick='setWallpaperFromGrid(document.getElementById("wallpaper-history-${counter}"))'><span id='wallpaper-history-image-overlay-message' class='wallpaper-history-image-overlay-message'><i class='fa-solid fa-image'></i> Click to set!</span><div class='wallpaper-history-overlay'></div><img class='wallpaper-history-image' src='${configData.wallpaperHistory[counter].thumbnailLink}'></div>`
         document.getElementById('wallpaper-grid').innerHTML += imageHistoryEl;
